@@ -1,38 +1,108 @@
-.App {
-  text-align: center;
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+        'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+        'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+nav {
+    padding: 0 1rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.content {
+    min-height: calc(100vh - 70px - 64px);
+    padding: 1.5rem 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.goods {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
 }
 
-.App-link {
-  color: #61dafb;
+.card{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 500px;
+}
+.card .card-content{
+    flex-grow: 1;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.cart{
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+
+    cursor: pointer;
+    z-index: 5;
+    padding: 1rem;
+}
+
+@media (min-width: 767px) {
+   .cart{
+    top: 5rem;
+    bottom: unset;
+   } 
+}
+
+.bascket-list{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+
+    background-color: white;
+    width: 50rem;
+    max-width: 95%;
+
+    animation: show 500ms ease-in-out;
+}
+
+.bascket-close{
+    cursor: pointer;
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    color: white;
+}
+
+.bascket-delete{
+    cursor: pointer;
+}
+
+@keyframes show {
+    from{
+        top: 70%;
+        opacity: 0;
+    }
+    to{
+        top:50%;
+        opacity: 1;
+    }
+}
+
+.bascket-count{
+    cursor: pointer;
+    vertical-align: middle;
+    color: #26A69A;
+}
+
+#toast-container{
+    top: 3rem !important;
+    animation: fade-in 250ms ease-in-out;
+}
+
+@keyframes fade-in {
+    from{
+        opacity: 0;
+        transform: translateY(2rem);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0rem);
+    }
 }
